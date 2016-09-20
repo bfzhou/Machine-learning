@@ -10,9 +10,6 @@ import scipy
 import io
 import pandas as pd
 
-#h=open('house-votes-84.data','r')
+#read file into table (parser)
 df = pd.read_table('house-votes-84.data',delimiter=",")
-
-#datas = np.loadtxt(m,delimiter=",")
-#print (datas)
 print(df)
