@@ -10,29 +10,33 @@ import pandas as pd
 import random
 from collections import Counter
 
+
 #read file into table (parser)
 df = pd.read_table('house-votes-84.data',delimiter=",")
-print(df)
+# print(df)
 
 #pick 30 data as data set
 datalength = len(df)
 #ascending data
-my_randoms = sorted(random.sample(xrange(datalength), 30))
+my_randoms = sorted(random.sample(range(datalength), 30))
 trainingset = df.loc[my_randoms]
 
 # get classification index
 
 
-cnt_pos = 0
-cnt_neg = 0
-idx_pos = []
-idx_neg = []
-subset_pos = {}
-subset_neg = {}
+
+
 for num_attri in range(1,17):
+	cnt_pos = 0
+	cnt_neg = 0
+	idx_pos = []
+	idx_neg = []
+	subset_pos = {}
+	subset_neg = {}
+
 	df4 = trainingset.iloc[:, num_attri]
 	for i, j in enumerate(df4):
-		print(i)
+		# print(i)
 		if j == 'y':
 			cnt_pos += 1
 			idx_pos.append(i)
@@ -41,6 +45,7 @@ for num_attri in range(1,17):
 			idx_neg.append(i)
 	print(cnt_pos, cnt_neg)
 	print(trainingset.iloc[idx_pos])
+	print('--------------')
 	print(trainingset.iloc[idx_neg])
 
 
@@ -51,7 +56,7 @@ entropy = {}
 for idx,val in enumerate( Counter( trainingset.iloc[:, 1] ).items() ):
 	# print(idx,val)
 	entropy[idx] = val[1]
-	print(entropy[idx])
+	# print(entropy[idx])
 
 
 
