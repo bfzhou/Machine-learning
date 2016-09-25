@@ -1,0 +1,114 @@
+testsize: 36 trainsize: 113 validsize: 29
+header:
+['Alcohol', "'Malic acid'", 'Ash', "'Alcalinity of ash'", 'Magnesium', "'Total phenols'", 'Flavanoids', "'Nonflavanoid phenols'", 'Proanthocyanins', "'Color intensity'", 'Hue', 'OD280/OD315', 'Proline', 'class']
+
+
+
+
+tree list:
+{'OD280/OD315': {'(2.18-3.09]': {'Proline': {'(745.333333-1212.666667]': {'Magnesium': {'(-inf-100.666667]': '1', '(131.333333-inf)': '2', '(100.666667-131.333333]': '1'}}, '(-inf-745.333333]': {'Ash': {'(1.983333-2.606667]': '2', '(2.606667-inf)': {'Alcohol': {'(12.296667-13.563333]': {'Magnesium': {'(-inf-100.666667]': '3', '(100.666667-131.333333]': '1'}}, '(-inf-12.296667]': '2'}}, '(-inf-1.983333]': '2'}}, '(1212.666667-inf)': '1'}}, '(-inf-2.18]': {"'Alcalinity of ash'": {'(-inf-17.066667]': '2', '(17.066667-23.533333]': {'Proanthocyanins': {'(1.466667-2.523333]': {"'Malic acid'": {'(-inf-2.426667]': '3', '(4.113333-inf)': '3', '(2.426667-4.113333]': '2'}}, '(-inf-1.466667]': '3'}}, '(23.533333-inf)': '3'}}, '(3.09-inf)': {'Proline': {'(745.333333-1212.666667]': {'Magnesium': {'(-inf-100.666667]': '1', '(131.333333-inf)': '2', '(100.666667-131.333333]': '1'}}, '(-inf-745.333333]': '2', '(1212.666667-inf)': '1'}}}}
+
+
+
+
+tree:
+OD280/OD315:--(2.18-3.09]
+|	Proline:--(745.333333-1212.666667]
+|	|	Magnesium:--(-inf-100.666667]-->decision:1
+|	|	Magnesium:--(131.333333-inf)-->decision:2
+|	|	Magnesium:--(100.666667-131.333333]-->decision:1
+|	Proline:--(-inf-745.333333]
+|	|	Ash:--(1.983333-2.606667]-->decision:2
+|	|	Ash:--(2.606667-inf)
+|	|	|	Alcohol:--(12.296667-13.563333]
+|	|	|	|	Magnesium:--(-inf-100.666667]-->decision:3
+|	|	|	|	Magnesium:--(100.666667-131.333333]-->decision:1
+|	|	|	Alcohol:--(-inf-12.296667]-->decision:2
+|	|	Ash:--(-inf-1.983333]-->decision:2
+|	Proline:--(1212.666667-inf)-->decision:1
+OD280/OD315:--(-inf-2.18]
+|	'Alcalinity of ash':--(-inf-17.066667]-->decision:2
+|	'Alcalinity of ash':--(17.066667-23.533333]
+|	|	Proanthocyanins:--(1.466667-2.523333]
+|	|	|	'Malic acid':--(-inf-2.426667]-->decision:3
+|	|	|	'Malic acid':--(4.113333-inf)-->decision:3
+|	|	|	'Malic acid':--(2.426667-4.113333]-->decision:2
+|	|	Proanthocyanins:--(-inf-1.466667]-->decision:3
+|	'Alcalinity of ash':--(23.533333-inf)-->decision:3
+OD280/OD315:--(3.09-inf)
+|	Proline:--(745.333333-1212.666667]
+|	|	Magnesium:--(-inf-100.666667]-->decision:1
+|	|	Magnesium:--(131.333333-inf)-->decision:2
+|	|	Magnesium:--(100.666667-131.333333]-->decision:1
+|	Proline:--(-inf-745.333333]-->decision:2
+|	Proline:--(1212.666667-inf)-->decision:1
+
+
+
+
+[['OD280/OD315', 'Proline', 'Magnesium'], ['OD280/OD315', 'Proline', 'Magnesium'], ['OD280/OD315', 'Proline', 'Magnesium'], ['OD280/OD315', 'Proline', 'Ash'], ['OD280/OD315', 'Proline', 'Ash', 'Alcohol', 'Magnesium'], ['OD280/OD315', 'Proline', 'Ash', 'Alcohol', 'Magnesium'], ['OD280/OD315', 'Proline', 'Ash', 'Alcohol'], ['OD280/OD315', 'Proline', 'Ash'], ['OD280/OD315', 'Proline'], ['OD280/OD315', "'Alcalinity of ash'"], ['OD280/OD315', "'Alcalinity of ash'", 'Proanthocyanins', "'Malic acid'"], ['OD280/OD315', "'Alcalinity of ash'", 'Proanthocyanins', "'Malic acid'"], ['OD280/OD315', "'Alcalinity of ash'", 'Proanthocyanins', "'Malic acid'"], ['OD280/OD315', "'Alcalinity of ash'", 'Proanthocyanins'], ['OD280/OD315', "'Alcalinity of ash'"], ['OD280/OD315', 'Proline', 'Magnesium'], ['OD280/OD315', 'Proline', 'Magnesium'], ['OD280/OD315', 'Proline', 'Magnesium'], ['OD280/OD315', 'Proline'], ['OD280/OD315', 'Proline']]
+[['(2.18-3.09]', '(745.333333-1212.666667]', '(-inf-100.666667]'], ['(2.18-3.09]', '(745.333333-1212.666667]', '(131.333333-inf)'], ['(2.18-3.09]', '(745.333333-1212.666667]', '(100.666667-131.333333]'], ['(2.18-3.09]', '(-inf-745.333333]', '(1.983333-2.606667]'], ['(2.18-3.09]', '(-inf-745.333333]', '(2.606667-inf)', '(12.296667-13.563333]', '(-inf-100.666667]'], ['(2.18-3.09]', '(-inf-745.333333]', '(2.606667-inf)', '(12.296667-13.563333]', '(100.666667-131.333333]'], ['(2.18-3.09]', '(-inf-745.333333]', '(2.606667-inf)', '(-inf-12.296667]'], ['(2.18-3.09]', '(-inf-745.333333]', '(-inf-1.983333]'], ['(2.18-3.09]', '(1212.666667-inf)'], ['(-inf-2.18]', '(-inf-17.066667]'], ['(-inf-2.18]', '(17.066667-23.533333]', '(1.466667-2.523333]', '(-inf-2.426667]'], ['(-inf-2.18]', '(17.066667-23.533333]', '(1.466667-2.523333]', '(4.113333-inf)'], ['(-inf-2.18]', '(17.066667-23.533333]', '(1.466667-2.523333]', '(2.426667-4.113333]'], ['(-inf-2.18]', '(17.066667-23.533333]', '(-inf-1.466667]'], ['(-inf-2.18]', '(23.533333-inf)'], ['(3.09-inf)', '(745.333333-1212.666667]', '(-inf-100.666667]'], ['(3.09-inf)', '(745.333333-1212.666667]', '(131.333333-inf)'], ['(3.09-inf)', '(745.333333-1212.666667]', '(100.666667-131.333333]'], ['(3.09-inf)', '(-inf-745.333333]'], ['(3.09-inf)', '(1212.666667-inf)']]
+['1', '2', '1', '2', '3', '1', '2', '2', '1', '2', '3', '3', '2', '3', '3', '1', '2', '1', '2', '1']
+
+error before rule pruning:
+error: 0.08333333333333333
+
+
+
+
+rules before rule pruning
+if (OD280/OD315=(2.18-3.09])&(Proline=(745.333333-1212.666667])&(Magnesium=(-inf-100.666667])	then 1
+if (OD280/OD315=(2.18-3.09])&(Proline=(745.333333-1212.666667])&(Magnesium=(131.333333-inf))	then 2
+if (OD280/OD315=(2.18-3.09])&(Proline=(745.333333-1212.666667])&(Magnesium=(100.666667-131.333333])	then 1
+if (OD280/OD315=(2.18-3.09])&(Proline=(-inf-745.333333])&(Ash=(1.983333-2.606667])	then 2
+if (OD280/OD315=(2.18-3.09])&(Proline=(-inf-745.333333])&(Ash=(2.606667-inf))&(Alcohol=(12.296667-13.563333])&(Magnesium=(-inf-100.666667])	then 3
+if (OD280/OD315=(2.18-3.09])&(Proline=(-inf-745.333333])&(Ash=(2.606667-inf))&(Alcohol=(12.296667-13.563333])&(Magnesium=(100.666667-131.333333])	then 1
+if (OD280/OD315=(2.18-3.09])&(Proline=(-inf-745.333333])&(Ash=(2.606667-inf))&(Alcohol=(-inf-12.296667])then 2
+if (OD280/OD315=(2.18-3.09])&(Proline=(-inf-745.333333])&(Ash=(-inf-1.983333])	then 2
+if (OD280/OD315=(2.18-3.09])&(Proline=(1212.666667-inf))	then 1
+if (OD280/OD315=(-inf-2.18])&('Alcalinity of ash'=(-inf-17.066667])	then 2
+if (OD280/OD315=(-inf-2.18])&('Alcalinity of ash'=(17.066667-23.533333])&(Proanthocyanins=(1.466667-2.523333])&('Malic acid'=(-inf-2.426667])	then 3
+if (OD280/OD315=(-inf-2.18])&('Alcalinity of ash'=(17.066667-23.533333])&(Proanthocyanins=(1.466667-2.523333])&('Malic acid'=(4.113333-inf))	then 3
+if (OD280/OD315=(-inf-2.18])&('Alcalinity of ash'=(17.066667-23.533333])&(Proanthocyanins=(1.466667-2.523333])&('Malic acid'=(2.426667-4.113333])	then 2
+if (OD280/OD315=(-inf-2.18])&('Alcalinity of ash'=(17.066667-23.533333])&(Proanthocyanins=(-inf-1.466667])	then 3
+if (OD280/OD315=(-inf-2.18])&('Alcalinity of ash'=(23.533333-inf))	then 3
+if (OD280/OD315=(3.09-inf))&(Proline=(745.333333-1212.666667])&(Magnesium=(-inf-100.666667])	then 1
+if (OD280/OD315=(3.09-inf))&(Proline=(745.333333-1212.666667])&(Magnesium=(131.333333-inf))	then 2
+if (OD280/OD315=(3.09-inf))&(Proline=(745.333333-1212.666667])&(Magnesium=(100.666667-131.333333])	then 1
+if (OD280/OD315=(3.09-inf))&(Proline=(-inf-745.333333])	then 2
+if (OD280/OD315=(3.09-inf))&(Proline=(1212.666667-inf))	then 1
+
+
+
+
+[['OD280/OD315', 'Proline', 'Magnesium'], ['OD280/OD315', 'Proline', 'Magnesium'], ['OD280/OD315', 'Proline', 'Magnesium'], ['OD280/OD315', 'Proline', 'Ash'], ['OD280/OD315', 'Proline', 'Ash', 'Alcohol', 'Magnesium'], ['OD280/OD315', 'Proline', 'Ash', 'Alcohol', 'Magnesium'], ['OD280/OD315', 'Proline', 'Ash', 'Alcohol'], ['OD280/OD315', 'Proline', 'Ash'], ['OD280/OD315', 'Proline'], ['OD280/OD315', "'Alcalinity of ash'"], ['OD280/OD315', "'Alcalinity of ash'", 'Proanthocyanins', "'Malic acid'"], ['OD280/OD315', "'Alcalinity of ash'", 'Proanthocyanins', "'Malic acid'"], ['OD280/OD315', "'Alcalinity of ash'", 'Proanthocyanins'], ['OD280/OD315', "'Alcalinity of ash'", 'Proanthocyanins'], ['OD280/OD315', "'Alcalinity of ash'"], ['OD280/OD315', 'Proline', 'Magnesium'], ['OD280/OD315', 'Proline', 'Magnesium'], ['OD280/OD315', 'Proline', 'Magnesium'], ['OD280/OD315', 'Proline'], ['OD280/OD315', 'Proline']]
+[['(2.18-3.09]', '(745.333333-1212.666667]', '(-inf-100.666667]'], ['(2.18-3.09]', '(745.333333-1212.666667]', '(131.333333-inf)'], ['(2.18-3.09]', '(745.333333-1212.666667]', '(100.666667-131.333333]'], ['(2.18-3.09]', '(-inf-745.333333]', '(1.983333-2.606667]'], ['(2.18-3.09]', '(-inf-745.333333]', '(2.606667-inf)', '(12.296667-13.563333]', '(-inf-100.666667]'], ['(2.18-3.09]', '(-inf-745.333333]', '(2.606667-inf)', '(12.296667-13.563333]', '(100.666667-131.333333]'], ['(2.18-3.09]', '(-inf-745.333333]', '(2.606667-inf)', '(-inf-12.296667]'], ['(2.18-3.09]', '(-inf-745.333333]', '(-inf-1.983333]'], ['(2.18-3.09]', '(1212.666667-inf)'], ['(-inf-2.18]', '(-inf-17.066667]'], ['(-inf-2.18]', '(17.066667-23.533333]', '(1.466667-2.523333]', '(-inf-2.426667]'], ['(-inf-2.18]', '(17.066667-23.533333]', '(1.466667-2.523333]', '(4.113333-inf)'], ['(-inf-2.18]', '(17.066667-23.533333]', '(1.466667-2.523333]'], ['(-inf-2.18]', '(17.066667-23.533333]', '(-inf-1.466667]'], ['(-inf-2.18]', '(23.533333-inf)'], ['(3.09-inf)', '(745.333333-1212.666667]', '(-inf-100.666667]'], ['(3.09-inf)', '(745.333333-1212.666667]', '(131.333333-inf)'], ['(3.09-inf)', '(745.333333-1212.666667]', '(100.666667-131.333333]'], ['(3.09-inf)', '(-inf-745.333333]'], ['(3.09-inf)', '(1212.666667-inf)']]
+['1', '2', '1', '2', '3', '1', '2', '2', '1', '2', '3', '3', '2', '3', '3', '1', '2', '1', '2', '1']
+
+error after rule pruning
+error: 0.1111111111111111
+
+
+
+
+rules after rule pruning
+if (OD280/OD315=(2.18-3.09])&(Proline=(745.333333-1212.666667])&(Magnesium=(-inf-100.666667])	then 1
+if (OD280/OD315=(2.18-3.09])&(Proline=(745.333333-1212.666667])&(Magnesium=(131.333333-inf))	then 2
+if (OD280/OD315=(2.18-3.09])&(Proline=(745.333333-1212.666667])&(Magnesium=(100.666667-131.333333])	then 1
+if (OD280/OD315=(2.18-3.09])&(Proline=(-inf-745.333333])&(Ash=(1.983333-2.606667])	then 2
+if (OD280/OD315=(2.18-3.09])&(Proline=(-inf-745.333333])&(Ash=(2.606667-inf))&(Alcohol=(12.296667-13.563333])&(Magnesium=(-inf-100.666667])	then 3
+if (OD280/OD315=(2.18-3.09])&(Proline=(-inf-745.333333])&(Ash=(2.606667-inf))&(Alcohol=(12.296667-13.563333])&(Magnesium=(100.666667-131.333333])	then 1
+if (OD280/OD315=(2.18-3.09])&(Proline=(-inf-745.333333])&(Ash=(2.606667-inf))&(Alcohol=(-inf-12.296667])then 2
+if (OD280/OD315=(2.18-3.09])&(Proline=(-inf-745.333333])&(Ash=(-inf-1.983333])	then 2
+if (OD280/OD315=(2.18-3.09])&(Proline=(1212.666667-inf))	then 1
+if (OD280/OD315=(-inf-2.18])&('Alcalinity of ash'=(-inf-17.066667])	then 2
+if (OD280/OD315=(-inf-2.18])&('Alcalinity of ash'=(17.066667-23.533333])&(Proanthocyanins=(1.466667-2.523333])&('Malic acid'=(-inf-2.426667])	then 3
+if (OD280/OD315=(-inf-2.18])&('Alcalinity of ash'=(17.066667-23.533333])&(Proanthocyanins=(1.466667-2.523333])&('Malic acid'=(4.113333-inf))	then 3
+if (OD280/OD315=(-inf-2.18])&('Alcalinity of ash'=(17.066667-23.533333])&(Proanthocyanins=(1.466667-2.523333])	then 2
+if (OD280/OD315=(-inf-2.18])&('Alcalinity of ash'=(17.066667-23.533333])&(Proanthocyanins=(-inf-1.466667])	then 3
+if (OD280/OD315=(-inf-2.18])&('Alcalinity of ash'=(23.533333-inf))	then 3
+if (OD280/OD315=(3.09-inf))&(Proline=(745.333333-1212.666667])&(Magnesium=(-inf-100.666667])	then 1
+if (OD280/OD315=(3.09-inf))&(Proline=(745.333333-1212.666667])&(Magnesium=(131.333333-inf))	then 2
+if (OD280/OD315=(3.09-inf))&(Proline=(745.333333-1212.666667])&(Magnesium=(100.666667-131.333333])	then 1
+if (OD280/OD315=(3.09-inf))&(Proline=(-inf-745.333333])	then 2
+if (OD280/OD315=(3.09-inf))&(Proline=(1212.666667-inf))	then 1

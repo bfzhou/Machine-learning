@@ -1,0 +1,112 @@
+testsize: 87 trainsize: 278 validsize: 70
+header:
+['handicapped-infants', 'water-project-cost-sharing', 'adoption-of-the-budget-resolution', 'physician-fee-freeze', 'el-salvador-aid', 'religious-groups-in-schools', 'anti-satellite-test-ban', 'aid-to-nicaraguan-contras', 'mx-missile', 'immigration', 'synfuels-corporation-cutback', 'education-spending', 'superfund-right-to-sue', 'crime', 'duty-free-exports', 'export-administration-act-south-africa', 'name']
+
+
+
+
+tree list:
+{'physician-fee-freeze': {'y': {'synfuels-corporation-cutback': {'y': {'adoption-of-the-budget-resolution': {'y': {'el-salvador-aid': {'y': 'democrat', 'n': 'republican'}}, 'n': {'el-salvador-aid': {'y': 'republican', 'n': 'democrat'}}}}, 'q': 'republican', 'n': {'duty-free-exports': {'y': {'mx-missile': {'y': {'anti-satellite-test-ban': {'y': 'republican', 'n': 'democrat'}}, 'n': 'republican'}}, 'q': 'republican', 'n': 'republican'}}}}, 'q': {'education-spending': {'y': 'republican', 'q': 'republican', 'n': 'democrat'}}, 'n': {'adoption-of-the-budget-resolution': {'y': 'democrat', 'q': 'democrat', 'n': {'religious-groups-in-schools': {'y': 'democrat', 'q': 'democrat', 'n': {'crime': {'y': 'republican', 'n': 'democrat'}}}}}}}}
+
+
+
+
+tree:
+physician-fee-freeze:--y
+|	synfuels-corporation-cutback:--y
+|	|	adoption-of-the-budget-resolution:--y
+|	|	|	el-salvador-aid:--y-->decision:democrat
+|	|	|	el-salvador-aid:--n-->decision:republican
+|	|	adoption-of-the-budget-resolution:--n
+|	|	|	el-salvador-aid:--y-->decision:republican
+|	|	|	el-salvador-aid:--n-->decision:democrat
+|	synfuels-corporation-cutback:--q-->decision:republican
+|	synfuels-corporation-cutback:--n
+|	|	duty-free-exports:--y
+|	|	|	mx-missile:--y
+|	|	|	|	anti-satellite-test-ban:--y-->decision:republican
+|	|	|	|	anti-satellite-test-ban:--n-->decision:democrat
+|	|	|	mx-missile:--n-->decision:republican
+|	|	duty-free-exports:--q-->decision:republican
+|	|	duty-free-exports:--n-->decision:republican
+physician-fee-freeze:--q
+|	education-spending:--y-->decision:republican
+|	education-spending:--q-->decision:republican
+|	education-spending:--n-->decision:democrat
+physician-fee-freeze:--n
+|	adoption-of-the-budget-resolution:--y-->decision:democrat
+|	adoption-of-the-budget-resolution:--q-->decision:democrat
+|	adoption-of-the-budget-resolution:--n
+|	|	religious-groups-in-schools:--y-->decision:democrat
+|	|	religious-groups-in-schools:--q-->decision:democrat
+|	|	religious-groups-in-schools:--n
+|	|	|	crime:--y-->decision:republican
+|	|	|	crime:--n-->decision:democrat
+
+
+
+
+[['physician-fee-freeze', 'synfuels-corporation-cutback', 'adoption-of-the-budget-resolution', 'el-salvador-aid'], ['physician-fee-freeze', 'synfuels-corporation-cutback', 'adoption-of-the-budget-resolution', 'el-salvador-aid'], ['physician-fee-freeze', 'synfuels-corporation-cutback', 'adoption-of-the-budget-resolution', 'el-salvador-aid'], ['physician-fee-freeze', 'synfuels-corporation-cutback', 'adoption-of-the-budget-resolution', 'el-salvador-aid'], ['physician-fee-freeze', 'synfuels-corporation-cutback'], ['physician-fee-freeze', 'synfuels-corporation-cutback', 'duty-free-exports', 'mx-missile', 'anti-satellite-test-ban'], ['physician-fee-freeze', 'synfuels-corporation-cutback', 'duty-free-exports', 'mx-missile', 'anti-satellite-test-ban'], ['physician-fee-freeze', 'synfuels-corporation-cutback', 'duty-free-exports', 'mx-missile'], ['physician-fee-freeze', 'synfuels-corporation-cutback', 'duty-free-exports'], ['physician-fee-freeze', 'synfuels-corporation-cutback', 'duty-free-exports'], ['physician-fee-freeze', 'education-spending'], ['physician-fee-freeze', 'education-spending'], ['physician-fee-freeze', 'education-spending'], ['physician-fee-freeze', 'adoption-of-the-budget-resolution'], ['physician-fee-freeze', 'adoption-of-the-budget-resolution'], ['physician-fee-freeze', 'adoption-of-the-budget-resolution', 'religious-groups-in-schools'], ['physician-fee-freeze', 'adoption-of-the-budget-resolution', 'religious-groups-in-schools'], ['physician-fee-freeze', 'adoption-of-the-budget-resolution', 'religious-groups-in-schools', 'crime'], ['physician-fee-freeze', 'adoption-of-the-budget-resolution', 'religious-groups-in-schools', 'crime']]
+[['y', 'y', 'y', 'y'], ['y', 'y', 'y', 'n'], ['y', 'y', 'n', 'y'], ['y', 'y', 'n', 'n'], ['y', 'q'], ['y', 'n', 'y', 'y', 'y'], ['y', 'n', 'y', 'y', 'n'], ['y', 'n', 'y', 'n'], ['y', 'n', 'q'], ['y', 'n', 'n'], ['q', 'y'], ['q', 'q'], ['q', 'n'], ['n', 'y'], ['n', 'q'], ['n', 'n', 'y'], ['n', 'n', 'q'], ['n', 'n', 'n', 'y'], ['n', 'n', 'n', 'n']]
+['democrat', 'republican', 'republican', 'democrat', 'republican', 'republican', 'democrat', 'republican', 'republican', 'republican', 'republican', 'republican', 'democrat', 'democrat', 'democrat', 'democrat', 'democrat', 'republican', 'democrat']
+
+error before rule pruning:
+error: 0.06896551724137931
+
+
+
+
+rules before rule pruning
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=y)&(adoption-of-the-budget-resolution=y)&(el-salvador-aid=y)	then democrat
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=y)&(adoption-of-the-budget-resolution=y)&(el-salvador-aid=n)	then republican
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=y)&(adoption-of-the-budget-resolution=n)&(el-salvador-aid=y)	then republican
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=y)&(adoption-of-the-budget-resolution=n)&(el-salvador-aid=n)	then democrat
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=q)	then republican
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=n)&(duty-free-exports=y)&(mx-missile=y)&(anti-satellite-test-ban=y)	then republican
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=n)&(duty-free-exports=y)&(mx-missile=y)&(anti-satellite-test-ban=n)	then democrat
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=n)&(duty-free-exports=y)&(mx-missile=n)	then republican
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=n)&(duty-free-exports=q)	then republican
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=n)&(duty-free-exports=n)	then republican
+if (physician-fee-freeze=q)&(education-spending=y)	then republican
+if (physician-fee-freeze=q)&(education-spending=q)	then republican
+if (physician-fee-freeze=q)&(education-spending=n)	then democrat
+if (physician-fee-freeze=n)&(adoption-of-the-budget-resolution=y)	then democrat
+if (physician-fee-freeze=n)&(adoption-of-the-budget-resolution=q)	then democrat
+if (physician-fee-freeze=n)&(adoption-of-the-budget-resolution=n)&(religious-groups-in-schools=y)	then democrat
+if (physician-fee-freeze=n)&(adoption-of-the-budget-resolution=n)&(religious-groups-in-schools=q)	then democrat
+if (physician-fee-freeze=n)&(adoption-of-the-budget-resolution=n)&(religious-groups-in-schools=n)&(crime=y)	then republican
+if (physician-fee-freeze=n)&(adoption-of-the-budget-resolution=n)&(religious-groups-in-schools=n)&(crime=n)	then democrat
+
+
+
+
+[['physician-fee-freeze', 'synfuels-corporation-cutback', 'adoption-of-the-budget-resolution', 'el-salvador-aid'], ['physician-fee-freeze', 'synfuels-corporation-cutback', 'adoption-of-the-budget-resolution'], ['physician-fee-freeze', 'synfuels-corporation-cutback', 'adoption-of-the-budget-resolution', 'el-salvador-aid'], ['physician-fee-freeze', 'synfuels-corporation-cutback', 'adoption-of-the-budget-resolution', 'el-salvador-aid'], ['physician-fee-freeze', 'synfuels-corporation-cutback'], ['physician-fee-freeze', 'synfuels-corporation-cutback', 'duty-free-exports', 'mx-missile', 'anti-satellite-test-ban'], ['physician-fee-freeze', 'synfuels-corporation-cutback', 'duty-free-exports', 'mx-missile', 'anti-satellite-test-ban'], ['physician-fee-freeze', 'synfuels-corporation-cutback', 'duty-free-exports', 'mx-missile'], ['physician-fee-freeze', 'synfuels-corporation-cutback', 'duty-free-exports'], ['physician-fee-freeze', 'synfuels-corporation-cutback', 'duty-free-exports'], ['physician-fee-freeze', 'education-spending'], ['physician-fee-freeze', 'education-spending'], ['physician-fee-freeze', 'education-spending'], ['physician-fee-freeze', 'adoption-of-the-budget-resolution'], ['physician-fee-freeze', 'adoption-of-the-budget-resolution'], ['physician-fee-freeze', 'adoption-of-the-budget-resolution', 'religious-groups-in-schools'], ['physician-fee-freeze', 'adoption-of-the-budget-resolution', 'religious-groups-in-schools'], ['physician-fee-freeze', 'adoption-of-the-budget-resolution', 'religious-groups-in-schools', 'crime'], ['physician-fee-freeze', 'adoption-of-the-budget-resolution', 'religious-groups-in-schools']]
+[['y', 'y', 'y', 'y'], ['y', 'y', 'y'], ['y', 'y', 'n', 'y'], ['y', 'y', 'n', 'n'], ['y', 'q'], ['y', 'n', 'y', 'y', 'y'], ['y', 'n', 'y', 'y', 'n'], ['y', 'n', 'y', 'n'], ['y', 'n', 'q'], ['y', 'n', 'n'], ['q', 'y'], ['q', 'q'], ['q', 'n'], ['n', 'y'], ['n', 'q'], ['n', 'n', 'y'], ['n', 'n', 'q'], ['n', 'n', 'n', 'y'], ['n', 'n', 'n']]
+['democrat', 'republican', 'republican', 'democrat', 'republican', 'republican', 'democrat', 'republican', 'republican', 'republican', 'republican', 'republican', 'democrat', 'democrat', 'democrat', 'democrat', 'democrat', 'republican', 'democrat']
+
+error after rule pruning
+error: 0.05747126436781609
+
+
+
+
+rules after rule pruning
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=y)&(adoption-of-the-budget-resolution=y)&(el-salvador-aid=y)	then democrat
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=y)&(adoption-of-the-budget-resolution=y)	then republican
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=y)&(adoption-of-the-budget-resolution=n)&(el-salvador-aid=y)	then republican
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=y)&(adoption-of-the-budget-resolution=n)&(el-salvador-aid=n)	then democrat
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=q)	then republican
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=n)&(duty-free-exports=y)&(mx-missile=y)&(anti-satellite-test-ban=y)	then republican
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=n)&(duty-free-exports=y)&(mx-missile=y)&(anti-satellite-test-ban=n)	then democrat
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=n)&(duty-free-exports=y)&(mx-missile=n)	then republican
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=n)&(duty-free-exports=q)	then republican
+if (physician-fee-freeze=y)&(synfuels-corporation-cutback=n)&(duty-free-exports=n)	then republican
+if (physician-fee-freeze=q)&(education-spending=y)	then republican
+if (physician-fee-freeze=q)&(education-spending=q)	then republican
+if (physician-fee-freeze=q)&(education-spending=n)	then democrat
+if (physician-fee-freeze=n)&(adoption-of-the-budget-resolution=y)	then democrat
+if (physician-fee-freeze=n)&(adoption-of-the-budget-resolution=q)	then democrat
+if (physician-fee-freeze=n)&(adoption-of-the-budget-resolution=n)&(religious-groups-in-schools=y)	then democrat
+if (physician-fee-freeze=n)&(adoption-of-the-budget-resolution=n)&(religious-groups-in-schools=q)	then democrat
+if (physician-fee-freeze=n)&(adoption-of-the-budget-resolution=n)&(religious-groups-in-schools=n)&(crime=y)	then republican
+if (physician-fee-freeze=n)&(adoption-of-the-budget-resolution=n)&(religious-groups-in-schools=n)	then democrat

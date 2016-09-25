@@ -2,7 +2,6 @@ import math
 import csv
 import types
 import random
-import sys
 
 
 def classify(classList):
@@ -61,9 +60,9 @@ def randomSplit(dataSet, percent):
     # return partA, partB
 
 
-inputData, header = loadCSV(sys.argv[-1])
-trainData, testData = randomSplit(inputData, 0.2)
-train, valid = randomSplit(trainData, 0.2)
+inputData, header = loadCSV('wine.csv')
+trainData, testData = randomSplit(inputData, 0.5)
+train, valid = randomSplit(trainData, 0.7)
 
 testsize = len(testData)
 trainsize = len(train)
