@@ -29,9 +29,10 @@ attr0 = inset[:,range(1,7)].astype(np.int)
 attr = np.hstack((attr0, np.ones((20,1),dtype=attr0.dtype)))
 # weight = np.array([0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ],dtype='float')
 np.random.seed(1)
-w0 = 2*np.random.random((7,4)) - 1
-w1 = 2*np.random.random((5,1)) - 1
-# print(label)
+w0 = np.random.random((7,4)) - 1
+w1 = np.random.random((5,1)) - 1
+print(w0)
+print(w1)
 Error_list= []
 for i in range(2000):
 	L0 = attr
@@ -53,11 +54,11 @@ for i in range(2000):
 print(w0)
 print(w1)
 print(L2)
-plt.plot(Error_list)
-plt.ylabel('Mean square Error')
-plt.xlabel('Iterations')
-plt.title('Mean square error at learning rate=1')
-plt.show()
+# plt.plot(Error_list)
+# plt.ylabel('Mean square Error')
+# plt.xlabel('Iterations')
+# plt.title('Mean square error at learning rate=1')
+# plt.show()
 # clf = MLPClassifier(solver='sgd', alpha=1e-5, hidden_layer_sizes=(),max_iter=1000)
 # print(clf.fit(attr, label))
 # print(clf.predict(attr[range(0,20),:]))
